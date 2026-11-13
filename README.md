@@ -10,10 +10,17 @@
 
 ## التحميل والتشغيل
 
-1. نزّل `Basma.exe` من صفحة **Releases**.
-2. شغّله. يحتاج **.NET 9 Desktop Runtime** (ويندوز يعرض تثبيته تلقائياً إن لم يكن موجوداً).
-3. البيانات تُحفظ في `BasmaData` بجانب الملف. اكتب اسمك كمحقق في **الإعدادات** أولاً.
-4. **قراءة الأقراص الفعلية تحتاج صلاحيات المسؤول**. زر «أعد التشغيل كمسؤول» يظهر عند الحاجة.
+من صفحة **Releases**:
+
+| الملف | الحجم | متى تستخدمه |
+|---|---|---|
+| **`Basma.exe`** | ~57 MB | **نسخة محمولة**: انسخها إلى فلاش وشغّلها مباشرة على أي ويندوز 10/11 64-bit، دون تثبيت أي شيء (.NET بداخلها) |
+| `Basma-small.exe` | ~0.6 MB | للأجهزة التي فيها **.NET 9 Desktop Runtime** |
+
+- البيانات تُحفظ في مجلد `BasmaData` **بجانب الملف** (على الفلاش نفسه)، فتنتقل قضاياك معك.
+- اكتب اسمك كمحقق في **الإعدادات** أولاً.
+- **قراءة الأقراص الفعلية تحتاج صلاحيات المسؤول**. زر «أعد التشغيل كمسؤول» يظهر عند الحاجة.
+- النسخة المحمولة تفك مكتبات WPF الأصلية في مجلد `%TEMP%` على الجهاز عند أول تشغيل. على جهاز مشتبه به، **وثّق ذلك** كأثر للفحص الحي، أو حلّل نسخته على جهاز المختبر.
 
 > الأداة تفتح الأقراص **للقراءة فقط**، لكن ويندوز نفسه قد يكتب على أي قرص موصول. للأدلة الحقيقية استخدم **حاجب كتابة عتادياً**.
 
@@ -93,6 +100,9 @@ MD5 · SHA-1 · SHA-256 · SHA-384 · SHA-512 · SHA3-256 · CRC32
 
 ## البناء من المصدر
 ```
+# portable (no .NET needed)
+dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -p:EnableCompressionInSingleFile=true -p:DebugType=none -o dist_portable
+# small (needs .NET 9 Desktop Runtime)
 dotnet publish -c Release -r win-x64 --self-contained false -p:PublishSingleFile=true -p:DebugType=none -o dist
 ```
 WPF / .NET 9، دون أي حزمة خارجية.
