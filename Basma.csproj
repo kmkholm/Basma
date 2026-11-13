@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <AssemblyName>Basma</AssemblyName>
+    <RootNamespace>Basma</RootNamespace>
+    <Version>1.1.0</Version>
+    <ApplicationIcon>Basma.ico</ApplicationIcon>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <Product>BASMA</Product>
+    <Company>Dr. Mohammed Tawfik</Company>
+    <Copyright>Copyright (c) 2026 Dr. Mohammed Tawfik - MIT License</Copyright>
+    <Description>BASMA - forensic hashing (files, folders, images, physical disks), comparison and chain-of-custody workbench</Description>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+    <NoWarn>CS8321;CS0168;CA1416</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Resource Include="Basma.ico" />
+  </ItemGroup>
+</Project>

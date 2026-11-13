@@ -1,0 +1,7 @@
+bin/
+obj/
+BasmaData/
+_demo/
+dist/
+tools/
+*.user
